@@ -11,9 +11,9 @@ public class OperationWithArgs {
 					op.calculate(x, y));
 		}
 
-		if (EnumOperation.ADD.getNumber() == 1) {
+		EnumOperation op = EnumOperation.ADD;
+		System.out.println(op.say());
 
-		}
 	}
 
 	enum EnumOperation {
@@ -22,11 +22,21 @@ public class OperationWithArgs {
 			public double calculate(double x, double y) {
 				return x + y;
 			}
+
+			@Override
+			public String say() {
+				return "足し算完了";
+			}
 		},
 		SUBTRACT(2, "引き算") {
 			@Override
 			public double calculate(double x, double y) {
 				return x - y;
+			}
+
+			@Override
+			public String say() {
+				return "引き算完了";
 			}
 		},
 		MULTIPLY(3, "掛け算") {
@@ -34,11 +44,21 @@ public class OperationWithArgs {
 			public double calculate(double x, double y) {
 				return x * y;
 			}
+
+			@Override
+			public String say() {
+				return "掛け算完了";
+			}
 		},
 		DIVIDE(4, "割り算") {
 			@Override
 			public double calculate(double x, double y) {
 				return x / y;
+			}
+
+			@Override
+			public String say() {
+				return "割り算完了";
 			}
 		};
 
@@ -59,5 +79,7 @@ public class OperationWithArgs {
 		}
 
 		public abstract double calculate(double x, double y);
+
+		public abstract String say();
 	}
 }
